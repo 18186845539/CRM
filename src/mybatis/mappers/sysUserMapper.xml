@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sysUserMapper">
+
+	<select id="list" resultType="SysUser">
+		select * from sysuser
+	</select>
+
+	<select id="query" resultType="SysUser">
+		select * from sysuser
+		<where>
+			<if test="id != null">
+				and id=#{id}
+			</if>
+			<if test="name != null">
+				and name=#{name}
+			</if>
+			<if test="loginName != null">
+				and loginName=#{loginName}
+			</if>
+			<if test="password != null">
+				and password=#{password}
+			</if>
+			<if test="avatar != null">
+				and avatar=#{avatar}
+			</if>
+		</where>
+	</select>
+</mapper>
